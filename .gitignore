@@ -1,2 +1,40 @@
-# machine-specific — never commit
-.config/hypr/machine.conf
+# ignore everything in home by default
+*
+.*
+
+# re-allow this file
+!.gitignore
+
+# ── configs ───────────────────────────────────────────────────────────────────
+
+!.config/
+.config/*
+
+!.config/hypr/
+.config/hypr/*
+!.config/hypr/hyprland.conf
+!.config/hypr/hyprpaper.conf
+
+!.config/sway/
+.config/sway/*
+!.config/sway/config
+!.config/sway/screenshot.sh
+!.config/sway/swaylock.sh
+
+!.config/waybar/
+.config/waybar/*
+!.config/waybar/config
+!.config/waybar/style.css
+
+!.config/wofi/
+.config/wofi/*
+!.config/wofi/config
+!.config/wofi/style.css
+
+!.config/fish/
+.config/fish/*
+!.config/fish/config.fish
+
+!.config/kitty/
+.config/kitty/*
+!.config/kitty/kitty.conf
