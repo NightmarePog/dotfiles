@@ -1,72 +1,72 @@
 * {
-  font-family: Maple Mono;
-  background: transparent;
-  color: #d8cab8;
+    font-family: Maple Mono;
+    font-size: 14px;
+    background: transparent;
+    color: #C4D8E8;
+}
+
+@keyframes wofi-in {
+    from { opacity: 0; margin-top: -8px; }
+    to   { opacity: 1; margin-top: 0;    }
 }
 
 #window {
-  color: #d8cab8;
-  border-color: #d8cab8;
-  border-style: solid;
-  border-width: 1px;
-
-  /*Linear gradient background instead of standard background, because it makes cleaner border-radius cuts, issa bug :p*/
-  background-image: linear-gradient(to bottom,rgb(42, 42, 42)  50%,rgb(21, 21, 21) 100%);
-  border-radius: 14px;
+    border: 1px solid #252525;
+    border-radius: 8px;
+    background-image: linear-gradient(to bottom, #141414 0%, #0A0A0A 100%);
+    animation: wofi-in 0.16s cubic-bezier(0.2, 0, 0, 1) both;
 }
+
 #scroll {
-  border-top-style: solid;
-  border-width: 1px;
-  border-color: #d8cab8;
+    border-top: 1px solid #1E1E1E;
 }
-#inner-box {
-  padding-top: 12px;
-}
-#entry {
-  border-style: none;
-  border-color: #d8cab8;
-  color: #d8cab8;
-  padding: 6px;
-  margin-bottom: 8px;
-  margin-left: 12px;
-  margin-right: 12;
 
-  border-radius: 12px;
+#inner-box {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+#entry {
+    border: none;
+    padding: 6px 12px;
+    margin: 3px 8px;
+    border-radius: 4px;
+    color: #888888;
+    transition: color 0.12s ease;
 }
 
 #entry:selected {
-  background: 	#0A0A0A;
-  color: #d8cab8;
-  font-weight: bold;
-  outline: none;
+    background: #FFFFFF;
+    color: #0A0A0A;
+    font-weight: bold;
+}
+
+#text:selected {
+    color: #0A0A0A;
 }
 
 #input {
-  background-color: #1C1C1C;
-  color: #d8cab8;
-  border-color: #d8cab8;
+    background: transparent;
+    color: #C4D8E8;
+    caret-color: #4A80A0;
 
-  border-style: none;
-  border-bottom-style: solid;
-  border-width: 1px;
+    border: none;
+    border-bottom: 1px solid #252525;
+    border-radius: 8px 8px 0 0;
 
-  font-style: normal;
-
-  border-radius: 8;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-
-  padding: 12px;
-  margin: 8px;
+    padding: 12px 16px;
+    margin: 0;
+    font-style: normal;
 }
+
 #input:focus {
-  background: #27232b;
-  background-color: #27232b;
-  border-color: #FFFFFF;
-  font-style: italic;
+    background: transparent;
+    border-bottom: 1px solid #4A80A0;
+    font-style: italic;
+    color: #FFFFFF;
 }
 
 #img {
-  padding: 4px;
-  margin-right: 6px;
+    padding: 4px;
+    margin-right: 6px;
 }

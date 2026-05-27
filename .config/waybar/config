@@ -1,69 +1,136 @@
 {
-  "layer": "bot",
-  "spacing": 10,
-  "height": 0,
-  "margin-bottom": 0,
-  "margin-top": 15,
-  "position": "top",
-  "padding-right": 10,
-  "margin-right": 50,
-  "margin-left": 50,
-  "modules-left": [
-    "hyprland/workspaces",
-    "sway/workspaces"
-  ],
-  "modules-center": [
-    
-  ],
-  "modules-right": [
-    "network",
-    "pulseaudio",
-    "tray",
-    "clock"
-  ],
-  "hyprland/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": false,
-    "tooltip": false
-  },
-  "sway/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": false,
-    "tooltip": false
-  },
-  "custom/applauncher": {
-    "format": "〇",
-    "on-click": "pgrep wofi >/dev/null 2>&1 && killall wofi || wofi --show drun --location=top -y 15",
-    "tooltip": false
-  },
-  "tray": {
+    "layer": "top",
     "spacing": 10,
-    "tooltip": false
-  },
-  "clock": {
-    "format": "󰅐 {:%H:%M}",
-    "tooltip": false
-  },
-  "network": {
-    "format-wifi": " {bandwidthDownBits}",
-    "format-ethernet": " {bandwidthDownBits}",
-    "format-disconnected": "󰤮 No Network",
-    "interval": 5,
-    "tooltip": false
-  },
-  "pulseaudio": {
-    "scroll-step": 5,
-    "max-volume": 150,
-    "format": "{icon} {volume}%",
-    "format-bluetooth": "{icon} {volume}%",
-    "format-icons": [
-      "",
-      "",
-      " "
-    ],
-    "nospacing": 1,
-    "format-muted": " ",
-    "on-click": "pavucontrol",
-    "tooltip": false
-  }
+    "height": 0,
+    "margin-bottom": 0,
+    "margin-top": 15,
+    "position": "top",
+    "padding-right": 10,
+    "margin-right": 50,
+    "margin-left": 50,
+
+    "modules-left": ["custom/applauncher", "hyprland/workspaces", "sway/workspaces"],
+    "modules-center": [],
+    "modules-right": ["network", "pulseaudio", "tray", "clock"],
+
+    "custom/applauncher": {
+        "format": "〇",
+        "on-click": "pgrep wofi >/dev/null 2>&1 && killall wofi || wofi --show drun --location=top -y 15",
+        "tooltip": false
+    },
+
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "tooltip": false,
+        "format": "{name}{windows}",
+        "window-format": " {icon}",
+        "window-rewrite-default": "<span color='#555566'>󰣆</span>",
+        "window-rewrite": {
+            "firefox":           "<span color='#FF7722'>󰈹</span>",
+            "Firefox":           "<span color='#FF7722'>󰈹</span>",
+            "kitty":             "<span color='#6EC6A0'></span>",
+            "Kitty":             "<span color='#6EC6A0'></span>",
+            "code":              "<span color='#4FC3F7'>󰨞</span>",
+            "Code":              "<span color='#4FC3F7'>󰨞</span>",
+            "code - oss":        "<span color='#4FC3F7'>󰨞</span>",
+            "vscodium":          "<span color='#4FC3F7'>󰨞</span>",
+            "cursor":            "<span color='#4FC3F7'>󰨞</span>",
+            "nautilus":          "<span color='#4A90D9'>󰉋</span>",
+            "Nautilus":          "<span color='#4A90D9'>󰉋</span>",
+            "discord":           "<span color='#5865F2'>󰙯</span>",
+            "Discord":           "<span color='#5865F2'>󰙯</span>",
+            "spotify":           "<span color='#1DB954'>󰓇</span>",
+            "Spotify":           "<span color='#1DB954'>󰓇</span>",
+            "steam":             "<span color='#B8CDD9'>󰓓</span>",
+            "Steam":             "<span color='#B8CDD9'>󰓓</span>",
+            "gimp":              "<span color='#7E7EDB'></span>",
+            "GIMP":              "<span color='#7E7EDB'></span>",
+            "vlc":               "<span color='#E88B00'>󰕼</span>",
+            "mpv":               "<span color='#E88B00'>󰕼</span>",
+            "celluloid":         "<span color='#E88B00'>󰕼</span>",
+            "obsidian":          "<span color='#7C3AED'>󰂿</span>",
+            "Obsidian":          "<span color='#7C3AED'>󰂿</span>",
+            "telegram-desktop":  "<span color='#2AABEE'>󰔁</span>",
+            "Telegram":          "<span color='#2AABEE'>󰔁</span>",
+            "slack":             "<span color='#36C5F0'>󰒱</span>",
+            "Slack":             "<span color='#36C5F0'>󰒱</span>",
+            "thunderbird":       "<span color='#0A84FF'>󰇮</span>",
+            "Thunderbird":       "<span color='#0A84FF'>󰇮</span>",
+            "lutris":            "<span color='#E4572E'>󰺵</span>",
+            "Lutris":            "<span color='#E4572E'>󰺵</span>",
+            "heroic":            "<span color='#E4572E'>󰺵</span>",
+            "blender":           "<span color='#E87D0D'>󰂫</span>",
+            "Blender":           "<span color='#E87D0D'>󰂫</span>",
+            "pavucontrol":       "<span color='#7A6B9E'>󰕾</span>",
+            "Pavucontrol":       "<span color='#7A6B9E'>󰕾</span>",
+            "libreoffice":       "<span color='#18A303'>󰈙</span>",
+            "thunar":            "<span color='#4A90D9'>󰉋</span>",
+            "Thunar":            "<span color='#4A90D9'>󰉋</span>"
+        }
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "tooltip": false,
+        "sort-by-number": true,
+        "format": "{name}{windows}",
+        "window-format": " {icon}",
+        "window-rewrite-default": "<span color='#555566'>󰣆</span>",
+        "window-rewrite": {
+            "firefox":           "<span color='#FF7722'>󰈹</span>",
+            "kitty":             "<span color='#6EC6A0'></span>",
+            "code":              "<span color='#4FC3F7'>󰨞</span>",
+            "code - oss":        "<span color='#4FC3F7'>󰨞</span>",
+            "vscodium":          "<span color='#4FC3F7'>󰨞</span>",
+            "cursor":            "<span color='#4FC3F7'>󰨞</span>",
+            "nautilus":          "<span color='#4A90D9'>󰉋</span>",
+            "discord":           "<span color='#5865F2'>󰙯</span>",
+            "spotify":           "<span color='#1DB954'>󰓇</span>",
+            "steam":             "<span color='#B8CDD9'>󰓓</span>",
+            "gimp":              "<span color='#7E7EDB'></span>",
+            "vlc":               "<span color='#E88B00'>󰕼</span>",
+            "mpv":               "<span color='#E88B00'>󰕼</span>",
+            "obsidian":          "<span color='#7C3AED'>󰂿</span>",
+            "telegram-desktop":  "<span color='#2AABEE'>󰔁</span>",
+            "slack":             "<span color='#36C5F0'>󰒱</span>",
+            "thunderbird":       "<span color='#0A84FF'>󰇮</span>",
+            "lutris":            "<span color='#E4572E'>󰺵</span>",
+            "heroic":            "<span color='#E4572E'>󰺵</span>",
+            "blender":           "<span color='#E87D0D'>󰂫</span>",
+            "pavucontrol":       "<span color='#7A6B9E'>󰕾</span>",
+            "thunar":            "<span color='#4A90D9'>󰉋</span>"
+        }
+    },
+
+    "tray": {
+        "spacing": 10,
+        "tooltip": false
+    },
+
+    "clock": {
+        "format": "󰅐 {:%H:%M}",
+        "tooltip": false
+    },
+
+    "network": {
+        "format-wifi":        " {bandwidthDownBits}",
+        "format-ethernet":    " {bandwidthDownBits}",
+        "format-disconnected": "󰤮 disconnected",
+        "interval": 5,
+        "tooltip": false
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+        "max-volume": 150,
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-icons": ["", "", " "],
+        "nospacing": 1,
+        "format-muted": " muted",
+        "on-click": "pavucontrol",
+        "tooltip": false
+    }
 }
