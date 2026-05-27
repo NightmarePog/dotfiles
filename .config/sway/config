@@ -19,7 +19,7 @@ set $term kitty
 set $menu pgrep wofi >/dev/null 2>&1 && killall wofi || wofi --show drun
 
 # file explorer
-set $file_explorer dolphin
+set $file_explorer nautilus
 
 # browser
 set $browser firefox
@@ -31,7 +31,7 @@ set $up w
 set $right d
 
 # my cool wallpaper :3
-output * bg /home/nightmare/wallpapers/joy_division_02.jpeg fill
+output * bg /home/nightmare/Wallpapers/joy_division_02.jpeg fill
     output DP-3 resolution 1920x1080 position 1920,0
     output HDMI-A-1 resolution 1920x1080 position 0,0
 
@@ -47,28 +47,36 @@ input * {
        xkb_layout "cz"
 }
 
-# turns on widgets
-exec_always ~/.config/eww/scripts/start.sh
 
 
 
 ######################## WINDOWS DESING #########################
 
 ## gaps :3
-gaps inner 8px
-gaps outer 8px
+gaps inner 10px
+gaps outer 10px
 
 ## borders woa
-default_border pixel 1px
-default_floating_border pixel 1px
+default_border pixel 2px
+default_floating_border pixel 2px
+
+## swayfx :3
+corner_radius 6
+shadows enable
+shadow_blur_radius 24
+shadow_color #000D1AAA
+shadow_inactive_color #00000033
+default_dim_inactive 0.14
+blur_passes 2
+blur_radius 5
 
 ## colors thingy
-#                           border  bg      text    ind     child border
-client.focused              #5B5B5B #1C1C1C #0A0A0A #0A0A0A #0A0A0A
-client.focused_inactive     #1C1C1C #1C1C1C #1C1C1C #1C1C1C #1C1C1C
-client.unfocused            #1C1C1C #1C1C1C #1C1C1C #1C1C1C #1C1C1C
-client.urgent               #8A2C2C #1C1C1C #1C1C1C #1C1C1C #1C1C1C
-client.placeholder          #C0C0C0 #C0C0C0 #C0C0C0 #C0C0C0 #C0C0C0
+#                           border    bg      text    ind       child border
+client.focused              #4A90D9 #0F0F0F #FFFFFF #5BA8EE #4A90D9
+client.focused_inactive     #1E3050 #0F0F0F #555555 #0F0F0F #1E3050
+client.unfocused            #141E2A #0F0F0F #3A3A3A #0F0F0F #141E2A
+client.urgent               #8A2C2C #0F0F0F #C0C0C0 #8A2C2C #8A2C2C
+client.placeholder          #141E2A #0F0F0F #3A3A3A #0F0F0F #141E2A
 
 #| Color (HEX) | Name / Pocit             | use                                    |
 #| ----------- | ------------------------ | -------------------------------------- |
@@ -98,7 +106,7 @@ client.placeholder          #C0C0C0 #C0C0C0 #C0C0C0 #C0C0C0 #C0C0C0
     bindsym $mod+b exec $browser
 
     # screenshot thingy
-    bindsym $alt+Shift+s exec grim -g "$(slurp)" - | wl-copy
+    bindsym $alt+Shift+s exec /home/nightmare/.config/sway/screenshot.sh
 
     # silly window dragging
     floating_modifier $mod normal
@@ -242,7 +250,7 @@ bindsym $mod+r mode "resize"
     # Special key to take a screenshot with grim
     bindsym Print exec grim
     bindsym $mod+e exec $file_explorer
-
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 
 
