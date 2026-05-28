@@ -1,0 +1,294 @@
+// ── Animations ────────────────────────────────────────────────────────────
+
+@keyframes dashboard-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes pr-pulse {
+    0%   { opacity: 0.65; }
+    50%  { opacity: 1.0;  }
+    100% { opacity: 0.65; }
+}
+
+// ── Dashboard window ──────────────────────────────────────────────────────
+
+.Dashboard {
+    animation:  dashboard-in 220ms ease both;
+    background: transparent;
+}
+
+.dashboard-inner {
+    background:  rgba(8, 8, 10, 0.97);
+    border-left: 1px solid rgba(74, 144, 217, 0.15);
+    min-width:   300px;
+    padding:     16px 14px 20px;
+    color:       #C4D8E8;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size:   13px;
+}
+
+// ── Shared ────────────────────────────────────────────────────────────────
+
+.section-title {
+    color:          rgba(74, 144, 217, 0.6);
+    font-size:      10px;
+    letter-spacing: 3px;
+    margin-bottom:  10px;
+    font-weight:    bold;
+}
+
+.sep {
+    background: rgba(74, 144, 217, 0.08);
+    min-height: 1px;
+    margin:     14px 0;
+}
+
+// ── Clock ─────────────────────────────────────────────────────────────────
+
+.clock-section {
+    padding: 8px 0 12px;
+}
+
+.clock-time {
+    color:       #EAEEF2;
+    font-size:   42px;
+    font-weight: bold;
+    font-family: "JetBrainsMono Nerd Font";
+    letter-spacing: 4px;
+}
+
+.clock-date {
+    color:          #4A90D9;
+    font-size:      12px;
+    letter-spacing: 2px;
+    margin-top:     2px;
+}
+
+// ── Calendar ─────────────────────────────────────────────────────────────
+
+.calendar-section {
+    padding-bottom: 4px;
+}
+
+calendar.dashboard-calendar {
+    background:  transparent;
+    color:       #C4D8E8;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size:   13px;
+    border:      none;
+}
+
+calendar.dashboard-calendar header {
+    background: transparent;
+    color:      #4A90D9;
+    font-size:  12px;
+}
+
+calendar.dashboard-calendar:selected {
+    background: #4A90D9;
+    color:      #080808;
+}
+
+calendar.dashboard-calendar .day-names label {
+    color:     rgba(196, 216, 232, 0.35);
+    font-size: 11px;
+}
+
+calendar.dashboard-calendar:indeterminate {
+    color: rgba(196, 216, 232, 0.2);
+}
+
+// ── Stats ─────────────────────────────────────────────────────────────────
+
+.stats-section {
+    padding-bottom: 4px;
+}
+
+.stat-row {
+    margin-bottom: 10px;
+}
+
+.stat-header {
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color:          #C4D8E8;
+    font-size:      12px;
+    letter-spacing: 1px;
+}
+
+.stat-detail {
+    color:       rgba(196, 216, 232, 0.45);
+    font-size:   11px;
+    font-family: "JetBrainsMono Nerd Font";
+}
+
+stat-bar-cpu trough,
+stat-bar-ram trough,
+stat-bar-gpu trough {
+    background:    rgba(30, 30, 40, 0.9);
+    min-height:    3px;
+    border-radius: 0;
+}
+
+stat-bar-cpu progress {
+    background:    #4A90D9;
+    min-height:    3px;
+    border-radius: 0;
+    transition:    all 700ms ease;
+}
+
+stat-bar-ram progress {
+    background:    #7A6B9E;
+    min-height:    3px;
+    border-radius: 0;
+    transition:    all 700ms ease;
+}
+
+stat-bar-gpu progress {
+    background:    #4A80A0;
+    min-height:    3px;
+    border-radius: 0;
+    transition:    all 700ms ease;
+}
+
+// ── GitHub PRs ────────────────────────────────────────────────────────────
+
+.github-section {
+    padding-bottom: 4px;
+}
+
+.pr-item {
+    border-left:   2px solid rgba(74, 144, 217, 0.3);
+    padding:       6px 0 6px 10px;
+    margin-bottom: 6px;
+    transition:    border-color 150ms ease;
+}
+
+.pr-item:hover {
+    border-left-color: #4A90D9;
+}
+
+.pr-title {
+    color:     #C4D8E8;
+    font-size: 12px;
+}
+
+.pr-meta {
+    color:          rgba(74, 144, 217, 0.55);
+    font-size:      11px;
+    margin-top:     2px;
+    letter-spacing: 0.5px;
+}
+
+.pr-empty {
+    color:          rgba(196, 216, 232, 0.2);
+    font-size:      12px;
+    letter-spacing: 1px;
+    margin:         8px 0;
+}
+
+// ── Commits ───────────────────────────────────────────────────────────────
+
+.commits-section {
+    padding-bottom: 4px;
+}
+
+.commit-item {
+    border-left:   2px solid rgba(74, 144, 217, 0.15);
+    padding:       5px 0 5px 10px;
+    margin-bottom: 5px;
+}
+
+.commit-msg {
+    color:     #C4D8E8;
+    font-size: 12px;
+}
+
+.commit-meta {
+    color:          rgba(74, 144, 217, 0.45);
+    font-size:      10px;
+    margin-top:     2px;
+    letter-spacing: 0.5px;
+}
+
+// ── Desktop widget ────────────────────────────────────────────────────────
+
+.InfoBar {
+    background: transparent;
+}
+
+.desktop-widget {
+    background:  transparent;
+    font-family: "JetBrainsMono Nerd Font";
+}
+
+.dw-time {
+    color:          rgba(234, 238, 242, 0.82);
+    font-size:      36px;
+    font-weight:    bold;
+    font-family:    "JetBrainsMono Nerd Font";
+    letter-spacing: 3px;
+}
+
+.dw-date {
+    color:          rgba(74, 144, 217, 0.55);
+    font-size:      11px;
+    letter-spacing: 2px;
+}
+
+.dw-gap {
+    min-height: 10px;
+}
+
+.dw-icon {
+    color:     rgba(74, 144, 217, 0.55);
+    font-size: 12px;
+}
+
+.dw-stat {
+    color:       rgba(196, 216, 232, 0.45);
+    font-size:   11px;
+    font-family: "JetBrainsMono Nerd Font";
+}
+
+.dw-secondary {
+    color:     rgba(196, 216, 232, 0.4);
+    font-size: 11px;
+}
+
+// ── PR Notify badge ───────────────────────────────────────────────────────
+
+.PRNotify {
+    background: transparent;
+}
+
+.pr-badge {
+    background:    rgba(8, 8, 10, 0.92);
+    border:        1px solid rgba(74, 144, 217, 0.4);
+    padding:       5px 12px;
+    animation:     pr-pulse 2.4s ease-in-out infinite;
+    border-radius: 0;
+    color:         #C4D8E8;
+    font-family:   "JetBrainsMono Nerd Font";
+}
+
+.pr-badge:hover {
+    background:  rgba(74, 144, 217, 0.15);
+    border-color: #4A90D9;
+    animation:   none;
+    opacity:     1.0;
+}
+
+.pr-icon {
+    color:     #4A90D9;
+    font-size: 14px;
+}
+
+.pr-count {
+    color:          #C4D8E8;
+    font-size:      12px;
+    letter-spacing: 1px;
+}
