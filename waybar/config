@@ -10,7 +10,7 @@
     "margin-left": 50,
 
     "modules-left": ["custom/applauncher", "hyprland/workspaces", "sway/workspaces"],
-    "modules-center": [],
+    "modules-center": ["hyprland/window"],
     "modules-right": ["network", "pulseaudio", "tray", "clock"],
 
     "custom/applauncher": {
@@ -101,6 +101,19 @@
             "blender":           "<span color='#E87D0D'>󰂫</span>",
             "pavucontrol":       "<span color='#7A6B9E'>󰕾</span>",
             "thunar":            "<span color='#4A90D9'>󰉋</span>"
+        }
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 50,
+        "tooltip": false,
+        "separate-outputs": true,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "󰈹 $1",
+            "(.*) - VSCodium": "󰨞 $1",
+            "(.*) - Code": "󰨞 $1",
+            "(.*)": "$1"
         }
     },
 

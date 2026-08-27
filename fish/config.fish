@@ -15,3 +15,5 @@ end
 alias docker=podman
 fish_add_path ~/.local/share/rokit/bin
 fish_add_path ~/.rokit/bin
+
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/nightmare/.ghcup/bin $PATH # ghcup-env
