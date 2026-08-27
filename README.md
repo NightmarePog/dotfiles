@@ -7,8 +7,8 @@ and they taught me how to do this stuff :3
 
 it's made for my dual monitor setup btw
 
-the actual configs live here and just get linked into `~/.config`, so git no
-longer has to look at my whole home folder
+the configs live here and just get linked into `~/.config`, so git no longer
+has to look at my whole home folder
 
 ## installing
 

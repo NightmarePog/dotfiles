@@ -17,19 +17,19 @@ $time\
 [ ](fg:color_bg1)\
 $line_break$character"""
 
-palette = 'gruvbox_dark'
+palette = 'post_punk'
 
-[palettes.gruvbox_dark]
-color_fg0 = '#fbf1c7'
-color_bg1 = '#3c3836'
-color_bg3 = '#665c54'
-color_blue = '#458588'
-color_aqua = '#689d6a'
-color_green = '#98971a'
-color_orange = '#d65d0e'
-color_purple = '#b16286'
-color_red = '#cc241d'
-color_yellow = '#d79921'
+[palettes.post_punk]
+color_fg0 = '#ded8ce'
+color_bg1 = '#0e0d12'
+color_bg3 = '#2d2732'
+color_blue = '#5c4568'
+color_aqua = '#3f5f8f'
+color_blue_bright = '#607eaa'
+color_orange = '#8e2632'
+color_purple = '#5c4568'
+color_red = '#b63d4b'
+color_yellow = '#9c793b'
 
 [os]
 disabled = false
@@ -136,11 +136,11 @@ format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 [docker_context]
 symbol = ""
 style = "bg:color_bg3"
-format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
+format = '[[ $symbol( $context) ](fg:#607eaa bg:color_bg3)]($style)'
 
 [conda]
 style = "bg:color_bg3"
-format = '[[ $symbol( $environment) ](fg:#83a598 bg:color_bg3)]($style)'
+format = '[[ $symbol( $environment) ](fg:#607eaa bg:color_bg3)]($style)'
 
 [pixi]
 style = "bg:color_bg3"
@@ -157,9 +157,9 @@ disabled = false
 
 [character]
 disabled = false
-success_symbol = '[](bold fg:color_green)'
+success_symbol = '[](bold fg:color_blue_bright)'
 error_symbol = '[](bold fg:color_red)'
-vimcmd_symbol = '[](bold fg:color_green)'
+vimcmd_symbol = '[](bold fg:color_blue_bright)'
 vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
 vimcmd_replace_symbol = '[](bold fg:color_purple)'
 vimcmd_visual_symbol = '[](bold fg:color_yellow)'

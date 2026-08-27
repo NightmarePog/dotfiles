@@ -1,58 +1,74 @@
 (include "eww_vars.yuck")
 
-(defwidget daybox []
-  (box :height "100" :width "100" :halign "center" :valign "center" :class "container"
-    (label :class "label"  :text DAY)
-  )
-)
-
-(defwidget monthbox []
-  (box :height "100" :width "100" :halign "center" :valign "center" :class "container"
-    (label :class "label"  :text MONTH)
-  )
-)
-
-(defwidget yearbox []
-  (box :height "100" :width "100" :halign "center" :valign "center" :class "container"
-    (label :class "label"  :text YEAR)
-  )
-)
-
-(defwidget userinfobox []
-  (centerbox :height "100" :width "340" :halign "center" :valign "center" :class "userinfo-parent"
-    (box :height "100" :width "113" :halign "center" :valign "center" :class "userinfo-child"
-      (button :onclick "kitty & disown" :class "button"
-        (label :class "icon-label"  :text "⌘")
-      )
+(defwidget signalstrip []
+  (box :class "signal-strip" :orientation "h" :spacing 0
+    (box :class "media-readout" :orientation "v" :width "255" :valign "center"
+      (label
+        :class "media-state"
+        :halign "start"
+        :text {MEDIA.status == "Playing" ? "PLAYING" : MEDIA.status == "Paused" ? "PAUSED" : "NO PLAYER"})
+      (label :class "media-title" :halign "start" :text {MEDIA.title})
+      (label :class "media-artist" :halign "start" :text {MEDIA.artist})
     )
-    (box :height "100" :width "113" :halign "center" :valign "center" :class "userinfo-child"
-      (button :onclick "GTK_THEME=diinki-retro-dark nautilus & disown"  :class "button"
-        (label :class "icon-label"  :text "🗀")
-      )
+
+    (box :class "media-controls" :orientation "h" :homogeneous true
+      (button :onclick "playerctl -p playerctld previous" :class "strip-button"
+        (label :text "󰒮"))
+      (button :onclick "playerctl -p playerctld play-pause" :class "strip-button media-toggle"
+        (label :text {MEDIA.status == "Playing" ? "󰏤" : "󰐊"}))
+      (button :onclick "playerctl -p playerctld next" :class "strip-button"
+        (label :text "󰒭"))
     )
-    (box :height "100" :width "113" :halign "center" :valign "center" :class "userinfo-child"
-      (button :onclick "eww open powermenu" :class "button"
-        (label :class "icon-label"  :text "⏻")
-      )
+
+    (box :class "strip-divider")
+
+    (box :class "session-actions" :orientation "h" :homogeneous true
+      (button :onclick "eww close signalstrip; kitty &" :class "strip-button"
+        (label :text "󰆍"))
+      (button :onclick "eww close signalstrip; GTK_THEME=diinki-retro-dark nautilus &" :class "strip-button"
+        (label :text "󰉋"))
+      (button :onclick "makoctl restore" :class "strip-button"
+        (label :text "󰑐"))
+      (button :onclick "eww close signalstrip; hyprlock" :class "strip-button"
+        (label :text "󰌾"))
+      (button :onclick "eww close signalstrip; eww open powermenu" :class "strip-button power-button"
+        (label :text "󰐥"))
     )
   )
 )
 
 (defwidget powermenu []
-  (centerbox :height "100" :width "340" :halign "center" :valign "center" :class "userinfo-parent"
-    (box :height "100" :width "113" :halign "center" :valign "center" :class "userinfo-child"
-      (button :onclick "systemctl poweroff" :class "poweroff-button"
-        (label :class "icon-label"  :text "⏻")
+  (box :class "power-strip" :orientation "h" :homogeneous true
+    (button :onclick "eww close powermenu; hyprlock" :class "power-action"
+      (label :text "LOCK"))
+    (button :onclick "systemctl suspend" :class "power-action"
+      (label :text "SLEEP"))
+    (button :onclick "systemctl poweroff" :class "power-action dangerous"
+      (label :text "OFF"))
+    (button :onclick "eww close powermenu" :class "power-action"
+      (label :text "CLOSE"))
+  )
+)
+
+(defwidget osd []
+  (revealer :transition "slideup" :reveal true :duration "140ms"
+    (box :orientation "v" :spacing 8 :class "signal-osd ${osd_kind} ${osd_muted ? 'muted' : ''}"
+      (box :orientation "h" :spacing 9 :class "osd-header"
+        (label :class "osd-icon" :text osd_icon)
+        (label :class "osd-kind" :halign "start" :hexpand true :text {osd_muted ? "${osd_label} · MUTED" : osd_label})
+        (label :class "osd-percentage" :halign "end" :text "${osd_value}%")
       )
-    )
-    (box :height "100" :width "113" :halign "center" :valign "center" :class "userinfo-child"
-      (button :onclick "swaylock-custom"  :class "suspend-button"
-        (label :class "icon-label"  :text "ꗃ")
-      )
-    )
-    (box :height "100" :width "113" :halign "center" :valign "center" :class "userinfo-child"
-      (button :onclick "eww close powermenu" :class "button"
-        (label :class "icon-label"  :text "⨯")
+      (box :orientation "h" :spacing 4 :class "osd-block-strip"
+        (box :class {!osd_muted && osd_value >= 10 ? "osd-block active" : "osd-block"})
+        (box :class {!osd_muted && osd_value >= 20 ? "osd-block active" : "osd-block"})
+        (box :class {!osd_muted && osd_value >= 30 ? "osd-block active" : "osd-block"})
+        (box :class {!osd_muted && osd_value >= 40 ? "osd-block active" : "osd-block"})
+        (box :class {!osd_muted && osd_value >= 50 ? "osd-block active" : "osd-block"})
+        (box :class {!osd_muted && osd_value >= 60 ? "osd-block active" : "osd-block"})
+        (box :class {!osd_muted && osd_value >= 70 ? "osd-block active" : "osd-block"})
+        (box :class {!osd_muted && osd_value >= 80 ? "osd-block active" : "osd-block"})
+        (box :class {!osd_muted && osd_value >= 90 ? "osd-block active" : "osd-block"})
+        (box :class {!osd_muted && osd_value >= 100 ? "osd-block active" : "osd-block"})
       )
     )
   )

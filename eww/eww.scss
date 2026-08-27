@@ -1,93 +1,153 @@
+$ink: #08080a;
+$panel: #0e0d12;
+$raised: #17141a;
+$rule-dark: #1b191e;
+$rule: #2b2830;
+$muted: #716d76;
+$paper: #c9c3b8;
+$bright: #ded8ce;
+$accent: #59485f;
+$danger: #762b35;
+
+@keyframes interface-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 * {
   all: unset;
   background: transparent;
-  font-family: Maple Mono;
+  font-family: "JetBrainsMono Nerd Font";
 }
 
 window {
   background: transparent;
 }
 
-.container {
-  background-color: #141216;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #d8cab8;
-  color: #d8cab8;
-  border-radius: 12px;
+.signal-strip,
+.power-strip {
+  background: $panel;
+  border: 1px solid $rule;
+  border-radius: 0;
+  color: $paper;
+  animation: interface-in 120ms ease-out both;
 }
-.userinfo-parent {
-  background-color: #141216;
-  color: #d8cab8;
-  border-radius: 12px;
 
-  border-width: 1px;
-  border-style: solid;
-  border-color: #d8cab8;
+.media-readout {
+  padding: 9px 14px;
 }
-.userinfo-child {
-  color: #d8cab8;
+
+.media-state {
+  color: $accent;
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
-.label {
-  font-size: 24px;
+
+.media-title {
+  color: $bright;
+  font-size: 12px;
   font-weight: bold;
 }
 
-.button-label {
-  font-size: 24px;
+.media-artist {
+  color: $muted;
+  font-size: 10px;
+}
+
+.media-controls {
+  border-left: 1px solid $rule-dark;
+}
+
+.strip-divider {
+  background: $rule;
+  min-width: 1px;
+  margin: 10px 0;
+}
+
+.strip-button {
+  color: $muted;
+  font-size: 16px;
+  min-width: 45px;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.strip-button:hover,
+.power-action:hover {
+  background: $bright;
+  color: $ink;
+}
+
+.strip-button:active,
+.power-action:active {
+  background: $muted;
+  color: $ink;
+}
+
+.media-toggle {
+  color: $paper;
+}
+
+.power-button:hover,
+.power-action.dangerous:hover {
+  background: $danger;
+  color: $bright;
+}
+
+.power-action {
+  color: $paper;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 0 14px;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.power-action + .power-action {
+  border-left: 1px solid $rule-dark;
+}
+
+.signal-osd {
+  background: $ink;
+  border: 1px solid $rule;
+  border-radius: 0;
+  color: $paper;
+  padding: 10px 13px;
+  animation: interface-in 100ms ease-out both;
+}
+
+.osd-icon {
+  color: $paper;
+  font-size: 17px;
+  min-width: 22px;
+}
+
+.osd-kind {
+  color: $muted;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.osd-percentage {
+  color: $bright;
+  font-size: 13px;
   font-weight: bold;
 }
 
-.completelytrans {
-  background: none;
+.osd-block {
+  background: $raised;
+  border-bottom: 1px solid $rule;
+  min-width: 20px;
+  min-height: 6px;
 }
 
-.button {
-  border-radius: 6px;
-  margin: 10px;
-}
-.button:hover {
-  background-color: #d3b7fd;
-  color: #141216;
-  transition-duration: 150ms;
-}
-.button:active {
-  background-color: #634a88;
-  color: #141216;
-  transition-duration: 150ms;
+.osd-block.active {
+  background: $paper;
+  border-bottom-color: $paper;
 }
 
-.poweroff-button {
-  border-radius: 6px;
-  margin: 10px;
-}
-.poweroff-button:hover {
-  background-color: #fc4649;
-  color: #141216;
-  transition-duration: 150ms;
-}
-.poweroff-button:active {
-  background-color: #862526;
-  color: #141216;
-  transition-duration: 150ms;
-}
-
-.suspend-button {
-  border-radius: 6px;
-  margin: 10px;
-}
-.suspend-button:hover {
-  background-color: #7b91fc;
-  color: #141216;
-  transition-duration: 150ms;
-}
-.suspend-button:active {
-  background-color: #515ea1;
-  color: #141216;
-  transition-duration: 150ms;
-}
-
-.icon-label {
-  font-size: 45px;
-  font-weight: normal;
+.signal-osd.muted .osd-icon,
+.signal-osd.muted .osd-kind {
+  color: $danger;
 }

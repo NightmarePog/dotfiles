@@ -1,3 +1,19 @@
+// ── Post-punk palette ───────────────────────────────────────────────────
+
+$ink:       #08080A;
+$panel:     #0E0D12;
+$raised:    #17131A;
+$rule-dark: #211D25;
+$rule:      #2D2732;
+$faint:     #4E4853;
+$muted:     #77717D;
+$paper:     #C9C3B8;
+$bright:    #DED8CE;
+$red:       #8E2632;
+$ochre:     #9C793B;
+$blue:      #3F5F8F;
+$violet:    #5C4568;
+
 // ── Animations ────────────────────────────────────────────────────────────
 
 @keyframes dashboard-in {
@@ -19,11 +35,11 @@
 }
 
 .dashboard-inner {
-    background:  #0A0A0A;
-    border-left: 1px solid #1A1A1A;
+    background:  rgba($ink, 0.96);
+    border-left: 2px solid $red;
     min-width:   300px;
     padding:     16px 14px 20px;
-    color:       #C4D8E8;
+    color:       $paper;
     font-family: "JetBrainsMono Nerd Font";
     font-size:   13px;
 }
@@ -31,7 +47,7 @@
 // ── Shared ────────────────────────────────────────────────────────────────
 
 .section-title {
-    color:          #3A3A3A;
+    color:          $red;
     font-size:      10px;
     letter-spacing: 3px;
     margin-bottom:  10px;
@@ -39,7 +55,7 @@
 }
 
 .sep {
-    background: #1A1A1A;
+    background: $rule;
     min-height: 1px;
     margin:     12px 0;
 }
@@ -51,7 +67,7 @@
 }
 
 .clock-time {
-    color:          #EAEEF2;
+    color:          $bright;
     font-size:      40px;
     font-weight:    bold;
     font-family:    "JetBrainsMono Nerd Font";
@@ -59,7 +75,7 @@
 }
 
 .clock-date {
-    color:          #3A3A3A;
+    color:          $ochre;
     font-size:      12px;
     letter-spacing: 2px;
     margin-top:     2px;
@@ -72,8 +88,8 @@
 }
 
 dashboard-calendar {
-    background:  #0A0A0A;
-    color:       #C4D8E8;
+    background:  $ink;
+    color:       $paper;
     font-family: "JetBrainsMono Nerd Font";
     font-size:   12px;
     border:      none;
@@ -81,15 +97,15 @@ dashboard-calendar {
 }
 
 dashboard-calendar header {
-    background:  #0A0A0A;
-    color:       #3A3A3A;
+    background:  $ink;
+    color:       $muted;
     font-size:   11px;
     border:      none;
     padding:     0 0 4px;
 }
 
 dashboard-calendar header label {
-    color:       #3A3A3A;
+    color:       $muted;
     font-family: "JetBrainsMono Nerd Font";
     font-size:   11px;
 }
@@ -97,10 +113,10 @@ dashboard-calendar header label {
 dashboard-calendar header button,
 dashboard-calendar header button.previous,
 dashboard-calendar header button.next {
-    background:    #0A0A0A;
+    background:    $ink;
     border:        none;
     border-radius: 0;
-    color:         #3A3A3A;
+    color:         $muted;
     padding:       2px 6px;
     min-width:     0;
     min-height:    0;
@@ -111,8 +127,8 @@ dashboard-calendar header button.next {
 dashboard-calendar header button:hover,
 dashboard-calendar header button.previous:hover,
 dashboard-calendar header button.next:hover {
-    background: #FFFFFF;
-    color:      #0A0A0A;
+    background: $bright;
+    color:      $ink;
 }
 
 dashboard-calendar header button image {
@@ -120,40 +136,40 @@ dashboard-calendar header button image {
 }
 
 dashboard-calendar:selected {
-    background: #FFFFFF;
-    color:      #0A0A0A;
+    background: $bright;
+    color:      $ink;
 }
 
 dashboard-calendar .today {
-    border-bottom: 2px solid #4A80A0;
-    color:         #FFFFFF;
+    border-bottom: 2px solid $blue;
+    color:         $bright;
     font-weight:   bold;
 }
 
 dashboard-calendar .today:selected {
-    background:    #FFFFFF;
-    color:         #0A0A0A;
-    border-bottom: 2px solid #4A80A0;
+    background:    $bright;
+    color:         $ink;
+    border-bottom: 2px solid $blue;
 }
 
 dashboard-calendar .marked {
-    border-bottom: 2px solid #7A6B9E;
-    color:         #C4D8E8;
+    border-bottom: 2px solid $violet;
+    color:         $paper;
 }
 
 dashboard-calendar .today.marked {
-    border-bottom: 2px solid #7A6B9E;
-    color:         #FFFFFF;
+    border-bottom: 2px solid $violet;
+    color:         $bright;
     font-weight:   bold;
 }
 
 dashboard-calendar .day-names label {
-    color:     #2A2A2A;
+    color:     $faint;
     font-size: 11px;
 }
 
 dashboard-calendar:indeterminate {
-    color: #2A2A2A;
+    color: $faint;
 }
 
 // ── Stats ─────────────────────────────────────────────────────────────────
@@ -171,13 +187,13 @@ dashboard-calendar:indeterminate {
 }
 
 .stat-label {
-    color:          #C4D8E8;
+    color:          $paper;
     font-size:      12px;
     letter-spacing: 1px;
 }
 
 .stat-detail {
-    color:       #3A3A3A;
+    color:       $muted;
     font-size:   11px;
     font-family: "JetBrainsMono Nerd Font";
 }
@@ -185,27 +201,27 @@ dashboard-calendar:indeterminate {
 stat-bar-cpu trough,
 stat-bar-ram trough,
 stat-bar-gpu trough {
-    background:    #141414;
+    background:    $raised;
     min-height:    3px;
     border-radius: 0;
 }
 
 stat-bar-cpu progress {
-    background:    #4A80A0;
+    background:    $blue;
     min-height:    3px;
     border-radius: 0;
     transition:    all 700ms ease;
 }
 
 stat-bar-ram progress {
-    background:    #7A6B9E;
+    background:    $violet;
     min-height:    3px;
     border-radius: 0;
     transition:    all 700ms ease;
 }
 
 stat-bar-gpu progress {
-    background:    #4A90D9;
+    background:    $red;
     min-height:    3px;
     border-radius: 0;
     transition:    all 700ms ease;
@@ -218,30 +234,30 @@ stat-bar-gpu progress {
 }
 
 .pr-item {
-    border-bottom:  1px solid #1A1A1A;
+    border-bottom:  1px solid $rule-dark;
     padding:        6px 0;
     margin-bottom:  2px;
     transition:     background 150ms ease;
 }
 
 .pr-item:hover {
-    background: #141414;
+    background: $raised;
 }
 
 .pr-title {
-    color:     #C4D8E8;
+    color:     $paper;
     font-size: 12px;
 }
 
 .pr-meta {
-    color:          #3A3A3A;
+    color:          $muted;
     font-size:      11px;
     margin-top:     2px;
     letter-spacing: 0.5px;
 }
 
 .pr-empty {
-    color:          #2A2A2A;
+    color:          $faint;
     font-size:      12px;
     letter-spacing: 1px;
     margin:         8px 0;
@@ -254,18 +270,18 @@ stat-bar-gpu progress {
 }
 
 .commit-item {
-    border-bottom:  1px solid #141414;
+    border-bottom:  1px solid $raised;
     padding:        5px 0;
     margin-bottom:  2px;
 }
 
 .commit-msg {
-    color:     #C4D8E8;
+    color:     $paper;
     font-size: 12px;
 }
 
 .commit-meta {
-    color:          #3A3A3A;
+    color:          $muted;
     font-size:      10px;
     margin-top:     2px;
     letter-spacing: 0.5px;
@@ -276,11 +292,11 @@ stat-bar-gpu progress {
 .day-events-panel {
     margin-top:  8px;
     padding-top: 8px;
-    border-top:  1px solid #1A1A1A;
+    border-top:  1px solid $rule-dark;
 }
 
 .day-events-title {
-    color:          #3A3A3A;
+    color:          $ochre;
     font-size:      11px;
     letter-spacing: 1px;
     margin-bottom:  4px;
@@ -292,28 +308,28 @@ stat-bar-gpu progress {
 }
 
 .day-event-time {
-    color:       #3A3A3A;
+    color:       $muted;
     font-size:   10px;
     font-family: "JetBrainsMono Nerd Font";
     min-width:   52px;
 }
 
 .day-event-name {
-    color:     #C4D8E8;
+    color:     $paper;
     font-size: 12px;
 }
 
 .day-event-empty {
-    color:     #2A2A2A;
+    color:     $faint;
     font-size: 11px;
     margin:    4px 0;
 }
 
 .add-event-btn {
-    background:    #0F0F0F;
+    background:    $panel;
     border:        none;
-    border-bottom: 1px solid #1E1E1E;
-    color:         #3A3A3A;
+    border-bottom: 1px solid $blue;
+    color:         $muted;
     font-size:     11px;
     font-family:   "JetBrainsMono Nerd Font";
     padding:       3px 8px;
@@ -322,8 +338,8 @@ stat-bar-gpu progress {
 }
 
 .add-event-btn:hover {
-    background:          #FFFFFF;
-    color:               #0A0A0A;
+    background:          $bright;
+    color:               $ink;
     border-bottom-color: transparent;
 }
 
@@ -339,7 +355,7 @@ stat-bar-gpu progress {
 }
 
 .dw-time {
-    color:          rgba(234, 238, 242, 0.82);
+    color:          rgba($bright, 0.88);
     font-size:      36px;
     font-weight:    bold;
     font-family:    "JetBrainsMono Nerd Font";
@@ -347,7 +363,7 @@ stat-bar-gpu progress {
 }
 
 .dw-date {
-    color:          rgba(74, 144, 217, 0.55);
+    color:          rgba($red, 0.72);
     font-size:      11px;
     letter-spacing: 2px;
 }
@@ -357,18 +373,18 @@ stat-bar-gpu progress {
 }
 
 .dw-icon {
-    color:     rgba(74, 144, 217, 0.55);
+    color:     rgba($blue, 0.78);
     font-size: 12px;
 }
 
 .dw-stat {
-    color:       rgba(196, 216, 232, 0.45);
+    color:       rgba($paper, 0.62);
     font-size:   11px;
     font-family: "JetBrainsMono Nerd Font";
 }
 
 .dw-secondary {
-    color:     rgba(196, 216, 232, 0.4);
+    color:     rgba($paper, 0.56);
     font-size: 11px;
 }
 
@@ -379,31 +395,31 @@ stat-bar-gpu progress {
 }
 
 .pr-badge {
-    background:    #0A0A0A;
+    background:    $ink;
     border:        none;
-    border-bottom: 1px solid #1E1E1E;
+    border-bottom: 1px solid $red;
     padding:       5px 12px;
     animation:     pr-pulse 2.4s ease-in-out infinite;
     border-radius: 0;
-    color:         #C4D8E8;
+    color:         $paper;
     font-family:   "JetBrainsMono Nerd Font";
 }
 
 .pr-badge:hover {
-    background:          #FFFFFF;
-    color:               #0A0A0A;
+    background:          $bright;
+    color:               $ink;
     border-bottom-color: transparent;
     animation:           none;
     opacity:             1.0;
 }
 
 .pr-icon {
-    color:     #4A90D9;
+    color:     $red;
     font-size: 14px;
 }
 
 .pr-count {
-    color:          #C4D8E8;
+    color:          $paper;
     font-size:      12px;
     letter-spacing: 1px;
 }

@@ -1,66 +1,46 @@
 (include "eww_widgets.yuck")
 
-(defwindow yearbox
+(defwindow signalstrip
   :monitor '[0]'
   :stacking "bg"
-  :namespace "eww"
+  :exclusive false
+  :focusable false
+  :namespace "eww-signalstrip"
   :geometry (geometry
     :x "50"
     :y "50"
-    :width "100"
-    :height "100"
+    :width "620px"
+    :height "78px"
     :anchor "bottom right")
-  (yearbox)
-)
-
-(defwindow monthbox
-  :monitor '[0]'
-  :stacking "bg"
-  :namespace "eww"
-  :geometry (geometry
-    :x "170"
-    :y "50"
-    :width "100"
-    :height "100"
-    :anchor "bottom right")
-  (monthbox)
-)
-
-(defwindow daybox
-  :monitor '[0]'
-  :stacking "bg"
-  :namespace "eww"
-  :geometry (geometry
-    :x "290"
-    :y "50"
-    :width "100"
-    :height "100"
-    :anchor "bottom right")
-  (daybox)
-)
-
-(defwindow userinfo
-  :monitor '[0]'
-  :stacking "bg"
-  :namespace "eww"
-  :geometry (geometry
-    :x "50"
-    :y "170"
-    :width "100"
-    :height "100"
-    :anchor "bottom right")
-  (userinfobox)
+  (signalstrip)
 )
 
 (defwindow powermenu
   :monitor '[0]'
-  :stacking "bg"
-  :namespace "eww"
+  :stacking "overlay"
+  :exclusive false
+  :focusable false
+  :namespace "eww-powermenu"
   :geometry (geometry
     :x "50"
-    :y "170"
-    :width "100"
-    :height "100"
+    :y "50"
+    :width "430px"
+    :height "62px"
     :anchor "bottom right")
   (powermenu)
+)
+
+(defwindow osd
+  :monitor '[0]'
+  :stacking "overlay"
+  :exclusive false
+  :focusable false
+  :namespace "eww-osd"
+  :geometry (geometry
+    :x "0"
+    :y "58"
+    :width "290px"
+    :height "76px"
+    :anchor "bottom center")
+  (osd)
 )

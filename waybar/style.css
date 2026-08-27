@@ -1,155 +1,137 @@
-/* ── animations ─────────────────────────────────────────── */
+@define-color ink #08080a;
+@define-color panel #0e0d12;
+@define-color raised #17141a;
+@define-color rule #2b2830;
+@define-color muted #716d76;
+@define-color paper #c9c3b8;
+@define-color bright #ded8ce;
+@define-color accent #59485f;
+@define-color danger #762b35;
 
 @keyframes urgent-pulse {
-    0%   { color: #8A2C2C; border-bottom-color: #8A2C2C; }
-    50%  { color: #C04444; border-bottom-color: #C04444; }
-    100% { color: #8A2C2C; border-bottom-color: #8A2C2C; }
+    0% { color: @paper; }
+    50% { color: @danger; }
+    100% { color: @paper; }
 }
-
-@keyframes focused-in {
-    from { border-bottom-color: transparent; }
-    to   { border-bottom-color: #FFFFFF;     }
-}
-
-/* ── base ────────────────────────────────────────────────── */
 
 * {
     font-family: JetBrainsMono Nerd Font;
-    font-size: 13px;
+    font-size: 11px;
     border-radius: 0;
     background: transparent;
 }
 
 window#waybar {
-    background: transparent;
-    padding: 0 10px;
+    background: alpha(@panel, 0.94);
+    color: @paper;
+    border: 1px solid @rule;
 }
 
-/* ── shared module chrome ────────────────────────────────── */
-
-#clock,
-#tray,
-#network,
+#custom-applauncher,
 #workspaces,
+#window,
+#network,
 #pulseaudio,
-#custom-applauncher {
-    background: #0F0F0F;
-    padding: 4px 10px;
-    margin: 4px 2px;
-    margin-bottom: 6px;
-    border-bottom: 1px solid #1E1E1E;
-    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
-}
-
-/* ── clock ───────────────────────────────────────────────── */
-
+#tray,
 #clock {
-    color: #C4D8E8;
-    letter-spacing: 2px;
-    margin-right: 2px;
-}
-
-/* ── network ─────────────────────────────────────────────── */
-
-#network {
-    color: #4A80A0;
-}
-
-#network.disconnected {
-    color: #555555;
-}
-
-/* ── audio ───────────────────────────────────────────────── */
-
-#pulseaudio {
-    color: #7A6B9E;
-}
-
-#pulseaudio.muted {
-    color: #333333;
-}
-
-/* ── window title ────────────────────────────────────────── */
-
-#window {
-    color: #3A3A3A;
-    font-size: 12px;
-    padding: 4px 14px;
-    margin: 4px 2px;
-    margin-bottom: 6px;
     background: transparent;
-    border: none;
-    letter-spacing: 0.5px;
-    transition: color 0.2s ease;
+    color: @muted;
+    margin: 0;
+    padding: 0 11px;
 }
 
-#window:hover {
-    color: #C4D8E8;
+#custom-applauncher,
+#workspaces {
+    border-right: 1px solid @rule;
 }
 
-/* ── workspaces ──────────────────────────────────────────── */
+#network,
+#pulseaudio,
+#tray,
+#clock {
+    border-left: 1px solid @rule;
+}
+
+#custom-applauncher {
+    color: @paper;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 0 14px;
+}
 
 #workspaces {
-    padding: 0 2px;
+    padding: 0 4px;
 }
 
 #workspaces button {
-    padding: 2px 10px;
-    margin: 0;
-    color: #3A3A3A;
     background: transparent;
     border: none;
-    border-bottom: 1px solid transparent;
-    transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 2px solid transparent;
+    color: @muted;
+    margin: 0;
+    min-width: 22px;
+    padding: 0 7px;
+    transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease;
 }
 
+#workspaces button.active,
 #workspaces button.focused {
-    color: #FFFFFF;
-    border-bottom: 1px solid #FFFFFF;
-    animation: focused-in 0.2s ease both;
+    border-bottom-color: @accent;
+    color: @bright;
 }
 
 #workspaces button.urgent {
-    animation: urgent-pulse 1.8s ease-in-out infinite;
+    animation: urgent-pulse 1.4s ease-in-out infinite;
 }
 
-#workspaces button:hover {
-    color: #C4D8E8;
-    background: #161616;
-}
-
-/* ── app launcher ────────────────────────────────────────── */
-
-#custom-applauncher {
-    font-size: 15px;
-    padding: 4px 14px;
-    color: #3A3A3A;
-}
-
-/* ── hover invert ────────────────────────────────────────── */
-
-#clock:hover,
-#tray:hover,
+#workspaces button:hover,
+#custom-applauncher:hover,
 #network:hover,
 #pulseaudio:hover,
-#custom-applauncher:hover {
-    color: #0A0A0A;
-    background: #FFFFFF;
-    border-bottom: 1px solid transparent;
+#clock:hover {
+    background: @raised;
+    color: @bright;
 }
 
-/* ── tray menu ───────────────────────────────────────────── */
+#window {
+    color: @muted;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+}
+
+#network,
+#pulseaudio,
+#clock {
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+#pulseaudio.muted,
+#network.disconnected {
+    color: @muted;
+}
+
+#clock {
+    color: @paper;
+    font-weight: bold;
+}
 
 #tray menu menuitem {
-    background: #0F0F0F;
+    background: @panel;
+    color: @paper;
+    border-left: 1px solid @rule;
     margin: 2px;
-    color: #C0C0C0;
-    border-radius: 0;
-    border-left: 1px solid #2A2A2A;
 }
 
 #tray menu menuitem:hover {
-    background: #161616;
-    color: #FFFFFF;
-    border-left: 1px solid #4A80A0;
+    background: @raised;
+    color: @bright;
+    border-left-color: @accent;
+}
+
+tooltip {
+    background: @panel;
+    border: 1px solid @rule;
+    color: @paper;
 }
