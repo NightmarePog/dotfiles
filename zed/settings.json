@@ -1,4 +1,7 @@
 {
+  "diagnostics": {
+    "button": false
+  },
   "agent_servers": {
     "github-copilot-cli": {
       "type": "registry"
@@ -46,6 +49,15 @@
     "model_parameters": []
   },
   "lsp": {
+    "mako": {
+      "binary": {
+        "path": "/tmp/makoc-hover-trace",
+        "arguments": ["--lsp"],
+        "env": {
+          "MAKO_HOVER_TRACE": "1",
+        },
+      },
+    },
     "lazarus-lsp": {
       "binary": {
         "path": "lua",
@@ -414,6 +426,8 @@
 
   "format_on_save": "on",
   "formatter": "prettier",
+  "hover_popover_enabled": true,
+  "hover_popover_delay": 100,
 
   "languages": {
     "TypeScript": {
